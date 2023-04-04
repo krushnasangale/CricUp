@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CricUp.Services;
+using CricUp.ViewModels;
 using Xamarin.Forms;
 
 namespace CricUp
 {
     public partial class MainPage : ContentPage
     {
+        private readonly IMatchesService matchesService;
         public MainPage()
         {
             InitializeComponent();
+            this.BindingContext = new MainPageViewModel();
         }
     }
 }
