@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Refit" Version="6.3.2" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.5" />
@@ -18,11 +19,14 @@
 
   <ItemGroup>
     <Folder Include="LocalModels\" />
+    <Folder Include="Services\Firebase\" />
     <Folder Include="Styles\" />
-    <Folder Include="ViewModels\Login\" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\Login\SignInPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Login\SignUpPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

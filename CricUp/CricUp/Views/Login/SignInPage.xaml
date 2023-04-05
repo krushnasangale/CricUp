@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="False"
              Shell.NavBarIsVisible="False"
-             x:Class="CricUp.Views.Login.SignUpPage">
+             x:Class="CricUp.Views.Login.SignInPage">
     <StackLayout>
         <StackLayout Orientation="Horizontal"
                      Spacing="0"
@@ -25,7 +25,7 @@
                Margin="0,0,0,-20">
             <StackLayout Spacing="20"
                          VerticalOptions="CenterAndExpand">
-                <Label Text="Create new account"
+                <Label Text="Log In"
                    FontSize="20"
                    FontAttributes="Bold"
                    TextColor="Black"/>
@@ -34,35 +34,36 @@
                            HeightRequest="25"
                            BackgroundColor="Transparent"/>
                     <Entry HorizontalOptions="FillAndExpand"
-                           Placeholder="UserName"
-                           Text="{Binding UserName, Mode=TwoWay}"/>
+                           Placeholder="UserName"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Image Source="Password"
                            HeightRequest="25"
                            BackgroundColor="Transparent"/>
                     <Entry HorizontalOptions="FillAndExpand"
-                           Placeholder="Password"
-                           Text="{Binding Password, Mode=TwoWay}"/>
+                           Placeholder="Password"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <StackLayout HorizontalOptions="StartAndExpand"
                                  Orientation="Horizontal">
                         <CheckBox />
-                        <Label Text="I agree to the"
+                        <Label Text="Remember Me?"
                                VerticalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="EndAndExpand">
+                        <Label Text="Forget password?"
+                               VerticalOptions="CenterAndExpand"
+                               TextColor="Blue"/>
                     </StackLayout>
                 </StackLayout>
 
-                <Button Text="Create account"
+                <Button Text="Login with your account"
                         CornerRadius="5"
-                        BackgroundColor="White"
-                        Command="{Binding CreateNewAccount}"/>
+                        BackgroundColor="White"/>
 
-                <Button Text="Already a user? Log in"
+                <Button Text="New user? Create account"
                         CornerRadius="5"
-                        BackgroundColor="White"
-                        Command="{Binding NavigateToLoginPage}"/>
+                        BackgroundColor="White"/>
             </StackLayout>
         </Frame>
     </StackLayout>
