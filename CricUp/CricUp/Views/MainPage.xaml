@@ -18,6 +18,8 @@
                    VerticalOptions="CenterAndExpand"/>
         </StackLayout>
 
+        
+        <!--carousel view recent matches-->
         <StackLayout HeightRequest="200"
                      Padding="15">
             <CarouselView ItemsSource="{Binding recentMatches}"
@@ -44,6 +46,36 @@
                            IndicatorColor="LightBlue"
                            SelectedIndicatorColor="Black"
                            HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+
+        <!--Match types list-->
+        <StackLayout Padding="10,0">
+            <ListView ItemsSource="{Binding typeMatches}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="5">
+                                <Frame HasShadow="False"
+                                       HeightRequest="60"
+                                       BorderColor="DarkGray"
+                                       Padding="0">
+                                    <StackLayout Orientation="Horizontal"
+                                           Margin="10,0">
+                                        <Label Text="{Binding matchType}"
+                                           VerticalOptions="CenterAndExpand"/>
+                                        <Image Source="RightDoubleArrow"
+                                           BackgroundColor="Transparent"
+                                               HeightRequest="25"
+                                               WidthRequest="25"
+                                               VerticalOptions="CenterAndExpand"
+                                               HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </StackLayout>
 

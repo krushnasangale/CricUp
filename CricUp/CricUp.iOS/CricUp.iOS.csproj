@@ -133,4 +133,7 @@
       <Name>CricUp</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RightDoubleArrow.png" />
+  </ItemGroup>
 </Project>
