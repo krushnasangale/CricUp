@@ -18,12 +18,21 @@
                    VerticalOptions="CenterAndExpand"/>
         </StackLayout>
 
-        
+
         <!--carousel view recent matches-->
+
+        <Label Text="Recent Series"
+               TextColor="Black"
+               FontSize="18"
+               FontAttributes="Bold"
+               Margin="20,0,0,0"/>
+
+
         <StackLayout HeightRequest="200"
-                     Padding="15">
+                     Padding="15,0">
             <CarouselView ItemsSource="{Binding recentMatches}"
-                          IndicatorView="RecentMatchesIndicator">
+                          IndicatorView="RecentMatchesIndicator"
+                          x:Name="MyRecentMatchesView">
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
                         <Frame
@@ -33,7 +42,11 @@
                             BorderColor="DarkGray"
                             Margin="20"
                             Padding="10"
+                            ClassId="{Binding seriesAdWrapper.seriesId}"
                             HorizontalOptions="CenterAndExpand">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </Frame.GestureRecognizers>
                             <Label Text="{Binding seriesAdWrapper.seriesName}"
                                    TextColor="Black"
                                    FontSize="16"/>

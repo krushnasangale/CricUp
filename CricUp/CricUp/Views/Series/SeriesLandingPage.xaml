@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CricUp.Views.Series.SeriesLandingPage"
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <!--//Application top bar-->
+            <StackLayout BackgroundColor="Blue"
+                     HeightRequest="45">
+                <Label Text="{Binding Title}"
+                    TextColor="White"
+                    VerticalOptions="CenterAndExpand"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    Margin="20,0,0,0"/>
+            </StackLayout>
+
+            <!--Match types list-->
+            <StackLayout Padding="10,0">
+                <ListView ItemsSource="{Binding typeMatches}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="5">
+                                    <Frame HasShadow="False"
+                                       HeightRequest="60"
+                                       BorderColor="DarkGray"
+                                       Padding="0">
+                                        <StackLayout Orientation="Horizontal"
+                                           Margin="10,0">
+                                            <Label Text="{Binding matchType}"
+                                           VerticalOptions="CenterAndExpand"/>
+                                            <Image Source="RightDoubleArrow"
+                                           BackgroundColor="Transparent"
+                                               HeightRequest="25"
+                                               WidthRequest="25"
+                                               VerticalOptions="CenterAndExpand"
+                                               HorizontalOptions="EndAndExpand"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
