@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CricUp.ViewModels
 {
@@ -22,7 +21,7 @@ namespace CricUp.ViewModels
             GetRecentMatches();
         }
 
-        public async Task GetRecentMatches()
+        public void GetRecentMatches()
         {
             try
             {

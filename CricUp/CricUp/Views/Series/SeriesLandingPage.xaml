@@ -9,7 +9,13 @@
 
             <!--//Application top bar-->
             <StackLayout BackgroundColor="Blue"
-                     HeightRequest="45">
+                        HeightRequest="45"
+                        Orientation="Horizontal">
+                <ImageButton BackgroundColor="Transparent"
+                             HeightRequest="25"
+                             HorizontalOptions="StartAndExpand"
+                             BorderWidth="25"
+                             Command="{Binding NavigateBack}"/>
                 <Label Text="{Binding Title}"
                     TextColor="White"
                     VerticalOptions="CenterAndExpand"

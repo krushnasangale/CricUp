@@ -1,5 +1,4 @@
-﻿using CricUp.Services;
-using CricUp.ViewModels;
+﻿using CricUp.ViewModels;
 using CricUp.Views.Series;
 using System;
 using Xamarin.Essentials;
@@ -9,7 +8,6 @@ namespace CricUp
 {
     public partial class MainPage : ContentPage
     {
-        private readonly IMatchesService matchesService;
         public MainPage()
         {
             InitializeComponent();

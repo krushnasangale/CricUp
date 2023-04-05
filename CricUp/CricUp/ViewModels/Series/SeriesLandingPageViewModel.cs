@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace CricUp.ViewModels.Series
 {
@@ -22,13 +23,27 @@ namespace CricUp.ViewModels.Series
             }
         }
         public List<SeriesMatch> seriesMatches { get; set; }
+        public Command NavigateBack { get; set; }
         public SeriesLandingPageViewModel()
         {
+            NavigateBack = new Command(async () => await NavigateToBackPage());
             seriesMatches = new List<SeriesMatch>();
             GetSeriesData();
         }
 
-        public async Task GetSeriesData()
+        private async Task NavigateToBackPage()
+        {
+            try
+            {
+                await Application.Current.MainPage.Navigation.PopAsync(false);
+            }
+            catch (Exception exp)
+            {
+                Console.WriteLine(exp.Message);
+            }
+        }
+
+        public void GetSeriesData()
         {
             try
             {
