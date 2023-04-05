@@ -136,4 +136,19 @@
   <ItemGroup>
     <BundleResource Include="Resources\RightDoubleArrow.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CrickUps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BackWhiteButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BackBlackButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\UserName.png" />
+  </ItemGroup>
 </Project>

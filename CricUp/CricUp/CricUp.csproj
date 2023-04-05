@@ -19,9 +19,13 @@
   <ItemGroup>
     <Folder Include="LocalModels\" />
     <Folder Include="Styles\" />
+    <Folder Include="ViewModels\Login\" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\Login\SignUpPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Series\SeriesLandingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

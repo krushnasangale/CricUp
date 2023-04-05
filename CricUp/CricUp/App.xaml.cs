@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using CricUp.Views.Login;
+using Xamarin.Forms;
 
 namespace CricUp
 {
@@ -8,7 +9,7 @@ namespace CricUp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new SignUpPage());
         }
 
         protected override void OnStart()
