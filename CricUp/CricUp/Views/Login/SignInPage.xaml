@@ -59,7 +59,8 @@
 
                 <Button Text="Login with your account"
                         CornerRadius="5"
-                        BackgroundColor="White"/>
+                        BackgroundColor="White"
+                        Command="{Binding LoginSuccessfullCommand}"/>
 
                 <Button Text="New user? Create account"
                         CornerRadius="5"

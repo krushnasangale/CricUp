@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "900176296118",
+    "project_id": "crickups-40cda",
+    "storage_bucket": "crickups-40cda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900176296118:android:5ffe25f957158200200e17",
+        "android_client_info": {
+          "package_name": "com.companyname.cricup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "900176296118-a0iibcf60luuet88ih4mp4ujeiihcs93.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.companyname.cricup",
+            "certificate_hash": "778ef2a7e9edd6208834a20ed2c61888363c1684"
+          }
+        },
+        {
+          "client_id": "900176296118-v4j9qc6stiljlate9rfv6f0iv7nm1cnk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgxMPQnzzDfZCnU2EyCdijrzKh-qKWifA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "900176296118-v4j9qc6stiljlate9rfv6f0iv7nm1cnk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

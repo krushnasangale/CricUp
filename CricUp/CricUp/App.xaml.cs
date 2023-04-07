@@ -9,7 +9,7 @@ namespace CricUp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new SignUpPage());
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
