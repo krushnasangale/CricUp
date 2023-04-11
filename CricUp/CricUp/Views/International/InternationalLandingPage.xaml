@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
+             x:Class="CricUp.Views.International.InternationalLandingPage">
+
+    <StackLayout>
+        <StackLayout Orientation="Horizontal"
+                     Spacing="0"
+                     Padding="20"
+                     HorizontalOptions="CenterAndExpand">
+            <Image Source="CrickUps"
+               HeightRequest="40"
+               WidthRequest="40"/>
+            <Label Text="International Matches"
+                   TextColor="Black"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   VerticalOptions="CenterAndExpand"/>
+        </StackLayout>
+
+        <ListView ItemsSource="{Binding SeriesMatches}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="5">
+                            <Frame HasShadow="False"
+                                       HeightRequest="60"
+                                       BorderColor="DarkGray"
+                                       Padding="0">
+                                <StackLayout Orientation="Horizontal"
+                                           Margin="10,0">
+                                    <Label Text="{Binding seriesAdWrapper}"
+                                           VerticalOptions="CenterAndExpand"/>
+                                    <Image Source="RightDoubleArrow"
+                                           BackgroundColor="Transparent"
+                                               HeightRequest="25"
+                                               WidthRequest="25"
+                                               VerticalOptions="CenterAndExpand"
+                                               HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

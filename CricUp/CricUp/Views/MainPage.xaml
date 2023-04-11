@@ -63,7 +63,8 @@
 
         <!--Match types list-->
         <StackLayout Padding="10,0">
-            <ListView ItemsSource="{Binding typeMatches}">
+            <ListView ItemsSource="{Binding typeMatches}"
+                      SelectedItem="{Binding SelectedMatchType}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
