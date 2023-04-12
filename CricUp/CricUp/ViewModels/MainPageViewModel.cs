@@ -12,10 +12,11 @@ namespace CricUp.ViewModels
 {
     public class MainPageViewModel : BaseViewModel
     {
+
+        #region Properties
         public ObservableCollection<SeriesMatch> recentMatches { get; set; }
-        public List<SeriesMatch> recentMatchesList { get; set; }
         public ObservableCollection<TypeMatch> typeMatches { get; set; }
-        public ObservableCollection<SeriesMatch> SeriesMatches;
+        public List<SeriesMatch> recentMatchesList { get; set; }
         public List<TypeMatch> typeMatchesList { get; set; }
 
         private TypeMatch _selectedMatchType;
@@ -28,6 +29,15 @@ namespace CricUp.ViewModels
                 OnPropertyChanged();
                 NavigateToSelectedMatchType();
             }
+        }
+
+        #endregion
+
+        public MainPageViewModel()
+        {
+            typeMatchesList = new List<TypeMatch>();
+            recentMatchesList = new List<SeriesMatch>();
+            GetRecentMatches();
         }
 
         private async void NavigateToSelectedMatchType()
@@ -44,13 +54,6 @@ namespace CricUp.ViewModels
             {
                 Console.WriteLine(exp.Message);
             }
-        }
-
-        public MainPageViewModel()
-        {
-            typeMatchesList = new List<TypeMatch>();
-            recentMatchesList = new List<SeriesMatch>();
-            GetRecentMatches();
         }
 
         public void GetRecentMatches()
@@ -70,9 +73,6 @@ namespace CricUp.ViewModels
                 {
                     typeMatchesList.Add(match);
                 }
-                var InternationalMatches = typeMatchesList[0];
-                var seriesItem = InternationalMatches.seriesMatches;
-                SeriesMatches = new ObservableCollection<SeriesMatch>(seriesItem);
                 recentMatches = new ObservableCollection<SeriesMatch>(recentMatchesList);
                 typeMatches = new ObservableCollection<TypeMatch>(typeMatchesList);
             }
