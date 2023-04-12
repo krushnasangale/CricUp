@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <Folder Include="LocalModels\" />
+    <Folder Include="Models\LocalModels\" />
     <Folder Include="Services\Firebase\" />
     <Folder Include="Styles\" />
   </ItemGroup>

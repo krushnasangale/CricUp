@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CricUp.Models.Matches.International
+namespace CricUp.Models.RespModels.Matches.International
 {
     public class InternationalLandingModel
     {

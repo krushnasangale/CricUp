@@ -3,39 +3,43 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="False"
              Shell.NavBarIsVisible="False"
+             BackgroundColor="#F2F2F2"
              x:Class="CricUp.MainPage">
 
-    <StackLayout>
+    <ScrollView
+        VerticalScrollBarVisibility="Never"
+        HorizontalScrollBarVisibility="Never">
+        <StackLayout>
 
-        <!--//Application top bar-->
-        <StackLayout BackgroundColor="Blue"
+            <!--//Application top bar-->
+            <StackLayout BackgroundColor="Blue"
                      HeightRequest="45">
-            <Label Text="CricUps +"
+                <Label Text="CricUps +"
                    TextColor="White"
                    FontSize="20"
                    FontAttributes="Bold"
                    HorizontalOptions="CenterAndExpand"
                    VerticalOptions="CenterAndExpand"/>
-        </StackLayout>
+            </StackLayout>
 
 
-        <!--carousel view recent matches-->
+            <!--carousel view recent matches-->
 
-        <Label Text="Recent Series"
+            <Label Text="Recent Series"
                TextColor="Black"
                FontSize="18"
                FontAttributes="Bold"
-               Margin="20,0,0,0"/>
+               Margin="15,0,0,0"/>
 
 
-        <StackLayout HeightRequest="200"
-                     Padding="15,0">
-            <CarouselView ItemsSource="{Binding recentMatches}"
-                          IndicatorView="RecentMatchesIndicator"
-                          x:Name="MyRecentMatchesView">
-                <CarouselView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame
+            <StackLayout HeightRequest="170"
+                Padding="15,0">
+                <CarouselView ItemsSource="{Binding recentMatches}"
+                    IndicatorView="RecentMatchesIndicator"
+                    x:Name="MyRecentMatchesView">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame
                             HasShadow="True"
                             BackgroundColor="LightBlue"
                             CornerRadius="10"
@@ -44,53 +48,107 @@
                             Padding="10"
                             ClassId="{Binding seriesAdWrapper.seriesId}"
                             HorizontalOptions="CenterAndExpand">
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                            </Frame.GestureRecognizers>
-                            <Label Text="{Binding seriesAdWrapper.seriesName}"
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                </Frame.GestureRecognizers>
+                                <Label Text="{Binding seriesAdWrapper.seriesName}"
                                    TextColor="Black"
                                    FontSize="16"/>
-                        </Frame>
-                    </DataTemplate>
-                </CarouselView.ItemTemplate>
-            </CarouselView>
+                            </Frame>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
 
-            <IndicatorView x:Name="RecentMatchesIndicator"
+                <IndicatorView x:Name="RecentMatchesIndicator"
                            IndicatorColor="LightBlue"
                            SelectedIndicatorColor="Black"
                            HorizontalOptions="CenterAndExpand"/>
-        </StackLayout>
+            </StackLayout>
 
-        <!--Match types list-->
-        <StackLayout Padding="10,0">
-            <ListView ItemsSource="{Binding typeMatches}"
-                      SelectedItem="{Binding SelectedMatchType}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid Padding="5">
-                                <Frame HasShadow="False"
+            <!--Match types list-->
+            <StackLayout Padding="10,0"
+                HeightRequest="285">
+                <ListView ItemsSource="{Binding typeMatches}"
+                HasUnevenRows="True"
+                SeparatorVisibility="None"
+                BackgroundColor="#F2F2F2"
+                VerticalScrollBarVisibility="Never"
+                SelectionMode="None"
+                SelectedItem="{Binding SelectedMatchType}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="5">
+                                    <Frame HasShadow="False"
                                        HeightRequest="60"
                                        BorderColor="DarkGray"
                                        Padding="0">
-                                    <StackLayout Orientation="Horizontal"
+                                        <StackLayout Orientation="Horizontal"
                                            Margin="10,0">
-                                        <Label Text="{Binding matchType}"
+                                            <Label Text="{Binding matchType}"
                                            VerticalOptions="CenterAndExpand"/>
-                                        <Image Source="RightDoubleArrow"
+                                            <Image Source="RightDoubleArrow"
                                            BackgroundColor="Transparent"
                                                HeightRequest="25"
                                                WidthRequest="25"
                                                VerticalOptions="CenterAndExpand"
                                                HorizontalOptions="EndAndExpand"/>
-                                    </StackLayout>
-                                </Frame>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+
+            <!--News List-->
+            <Label Text="Recent Top News"
+               TextColor="Black"
+               FontSize="18"
+               FontAttributes="Bold"
+               Margin="15,0,0,0"/>
+
+
+            <StackLayout Padding="5,0">
+                <ListView ItemsSource="{Binding newsStories}"
+                 HasUnevenRows="True"
+                 SeparatorVisibility="None"
+                 BackgroundColor="#F2F2F2"
+                 VerticalScrollBarVisibility="Never">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="10">
+                                    <Frame HasShadow="False"
+                                        Padding="5"
+                                        CornerRadius="2"
+                                        BackgroundColor="#FFFFFF"
+                                           BorderColor="DarkGray">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer/>
+                                        </Frame.GestureRecognizers>
+                                        <StackLayout>
+                                            <Label Text="{Binding story.storyType}"
+                                                   FontSize="14"/>
+                                            <Image Source="{Binding }"
+                                                   HeightRequest="100"/>
+                                            <Label Text="{Binding story.hline}"
+                                                   FontSize="16"
+                                                   FontAttributes="Bold"
+                                                   TextColor="Black"/>
+                                            <Label Text="{Binding story.intro}"
+                                                   FontSize="14"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
         </StackLayout>
-    </StackLayout>
+    </ScrollView>
 
 </ContentPage>

@@ -1,4 +1,6 @@
-﻿using CricUp.Services;
+﻿using CricUp.Models.News;
+using CricUp.Services;
+using CricUp.Services.News;
 using CricUp.ViewModels.Base;
 using CricUp.Views.International;
 using Refit;
@@ -6,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using Xamarin.Forms;
 
 namespace CricUp.ViewModels
@@ -14,8 +17,11 @@ namespace CricUp.ViewModels
     {
 
         #region Properties
+        public ObservableCollection<StoryList> newsStories { get; set; }
         public ObservableCollection<SeriesMatch> recentMatches { get; set; }
         public ObservableCollection<TypeMatch> typeMatches { get; set; }
+
+        public List<StoryList> newsStoriesList { get; set; }
         public List<SeriesMatch> recentMatchesList { get; set; }
         public List<TypeMatch> typeMatchesList { get; set; }
 
@@ -35,9 +41,33 @@ namespace CricUp.ViewModels
 
         public MainPageViewModel()
         {
+            newsStoriesList = new List<StoryList>();
             typeMatchesList = new List<TypeMatch>();
             recentMatchesList = new List<SeriesMatch>();
             GetRecentMatches();
+            GetLatestNews();
+        }
+
+        private void GetLatestNews()
+        {
+            try
+            {
+                var httpClient = RestService.For<INewsService>(APIHostUrl);
+                var resp = httpClient.GetRecentNews(XRapidAPIKey: RapidAPIKey, XRapidAPIHost: RapidAPIHost);
+                var newsList = resp.Result.storyList;
+                foreach (var item in newsList)
+                {
+                    if(item.story != null)
+                    {
+                        newsStoriesList.Add(item);
+                    }
+                }
+                newsStories = new ObservableCollection<StoryList>(newsStoriesList);
+            }
+            catch (Exception exp)
+            {
+                Console.WriteLine(exp.Message);
+            }
         }
 
         private async void NavigateToSelectedMatchType()
